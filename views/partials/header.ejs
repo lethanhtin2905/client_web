@@ -60,10 +60,10 @@
                             <form action="/search" method="POST">
                                 <select class="input-select" name="category">
                                     <option value="" selected>Tất cả</option>
-                                    <option value="Bàn%20phím">Bàn phím</option>
-                                    <option value="Chuột">Chuột</option>
-                                    <option value="Loa">Loa</option>
-                                    <option value="Tai%20nghe">Tai nghe</option>
+                                    <option value="Bàn%20phím"<% if (typeof category != 'undefined' && category == "Bàn phím") { %> selected <% } %>>Bàn phím</option>
+                                    <option value="Chuột"<% if (typeof category != 'undefined' && category == "Chuột") { %> selected <% } %>>Chuột</option>
+                                    <option value="Loa"<% if (typeof category != 'undefined' && category == "Loa") { %> selected <% } %>>Loa</option>
+                                    <option value="Tai%20nghe"<% if (typeof category != 'undefined' && category == "Tai nghe") { %> selected <% } %>>Tai nghe</option>
                                 </select>
                                 <input class="input" auto-focus tab-index='1' type='text' auto-complete='search'
                                     name="name" id='inputSearch' placeholder="Nhập từ khóa" autocomplete="on"
@@ -127,7 +127,7 @@
                     </li>
                     <li>
                         <button type="button" class="btn btn-secondary button-style">
-                            <a href="/store">Tất cả sản phẩm</a>
+                            <a href="/store?count=12&page=1">Tất cả sản phẩm</a>
                         </button>
                     </li>
                     <!-- CATEGORY -->
@@ -139,10 +139,10 @@
                                 <a>Loại sản phẩm</a>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/store">Bàn phím<br></a>
-                                <a class="dropdown-item" href="/store">Chuột<br></a>
-                                <a class="dropdown-item" href="/store">Loa<br></a>
-                                <a class="dropdown-item" href="/store">Tai nghe<br></a>
+                                <a class="dropdown-item" href="/store?category=Bàn%20phím">Bàn phím<br></a>
+                                <a class="dropdown-item" href="/store?category=Chuột">Chuột<br></a>
+                                <a class="dropdown-item" href="/store?category=Loa">Loa<br></a>
+                                <a class="dropdown-item" href="/store?category=Tai%20nghe">Tai nghe<br></a>
                             </div>
                         </div>
                     </li>
@@ -155,11 +155,11 @@
                                 <a>Nhà sản xuất</a>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/store">Asus<br></a>
-                                <a class="dropdown-item" href="/store">Fuhlen<br></a>
-                                <a class="dropdown-item" href="/store">Logitech<br></a>
-                                <a class="dropdown-item" href="/store">Sony<br></a>
-                                <a class="dropdown-item" href="/store">Razer<br></a>
+                                <a class="dropdown-item" href="/store?producer=Asus">Asus<br></a>
+                                <a class="dropdown-item" href="/store?producer=Fulhen">Fuhlen<br></a>
+                                <a class="dropdown-item" href="/store?producer=Logitech">Logitech<br></a>
+                                <a class="dropdown-item" href="/store?producer=Sony">Sony<br></a>
+                                <a class="dropdown-item" href="/store?producer=Razer">Razer<br></a>
                             </div>
                         </div>
                     </li>
