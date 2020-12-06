@@ -185,3 +185,19 @@ exports.searchPage = (req, res) => {
 		})
 		.catch(err => console.log(err));
 }
+
+// Search Handle
+exports.searchHandle = (req, res) => {
+	const category = (typeof req.body.category != 'undefined') ? (req.body.category) : '';
+	const name = req.body.name;
+
+	let queryStr = 'name=' + name + '&';
+	if (category != '') {
+		queryStr += ('category=' + category + '&');
+	}
+	queryStr += ('count=12&page=1');
+
+	let redirect = '/search?' + queryStr;
+
+	res.redirect('/search?' + queryStr);
+}

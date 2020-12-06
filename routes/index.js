@@ -16,4 +16,10 @@ router.get('/product/:id', productControllers.productInfo);
 // Search Result Page
 router.get('/search', productControllers.searchPage);
 
+// Search Handle
+router.post('/search', productControllers.searchHandle);
+
+// Advance Filter
+router.post('/store', productControllers.filter);
+
 module.exports = router;
