@@ -1,0 +1,23 @@
+<div class="store-filter clearfix">
+    <div class="store-sort">
+        <label>
+            Sắp xếp theo:
+            <select class="input-select" onchange="location = this.value;">
+                <option value="?<%= filterStr %>" selected>Mới nhất</option>
+                <option value="?<%= filterStr %>sort=name-asc" >Tên (A -> Z)</option>
+                <option value="?<%= filterStr %>sort=name-des" >Tên (Z -> A)</option>
+                <option value="?<%= filterStr %>sort=price-asc" >Giá (thấp -> cao)</option>
+                <option value="?<%= filterStr %>sort=price-des" >Giá (cao -> thấp)</option>
+            </select>
+        </label>
+
+        <label>
+            Số sản phẩm mỗi trang:
+            <select class="input-select" onchange="location = this.value;">
+                <option value="?<%= filterStr %><%= sortStr %>count=4&page=1" >4</option>
+                <option value="?<%= filterStr %><%= sortStr %>count=8&page=1" >8</option>
+                <option value="?<%= filterStr %><%= sortStr %>count=12&page=1" >12</option>
+            </select>
+        </label>
+    </div>
+</div> 
