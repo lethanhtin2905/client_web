@@ -71,6 +71,9 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+// Passport config
+require('./config/passport')(passport);
+
 //catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
@@ -88,4 +91,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-// test push code 

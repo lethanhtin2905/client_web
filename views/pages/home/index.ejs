@@ -54,26 +54,7 @@
 					<div class="products-tabs">
 						<div id="tab1" class="tab-pane active">
 							<div class="products-slick" data-nav="#slick-nav-1">
-								<% products.forEach((entry) => { %>
-									<div class="product">
-										<a href="/product/<%= entry._id %>">
-											<div class="product-img">
-												<img src="<%= entry.imgSrc %>" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">MỚI</span>
-												</div>
-											</div>
-										</a>
-										<div class="product-body">
-											<p class="product-category"><%= entry.category %></p>
-											<h3 class="product-name"><a href="/product/<%=entry._id %>"><%= entry.name %></a></h3>
-											<h4 class="product-price"><%= priceConverter(entry.price) %> đ
-												<del class="product-old-price"><%= priceConverter(entry.old_price) %> đ</del>
-											</h4>
-										</div>
-									</div>
-								<% }) %>
+								<%- include ('../../partials/list-products.ejs') %>
 							</div>
 							<div id="slick-nav-1" class="products-slick-nav"></div>
 						</div>
@@ -114,26 +95,7 @@
 					<div class="products-tabs">
 						<div id="tab2" class="tab-pane fade in active">
 							<div class="products-slick" data-nav="#slick-nav-2">
-								<% products.forEach((entry) => { %>
-									<div class="product">
-										<a href="/product/<%= entry._id %>">
-											<div class="product-img">
-												<img src="<%= entry.imgSrc %>" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">MỚI</span>
-												</div>
-											</div>
-										</a>
-										<div class="product-body">
-											<p class="product-category"><%= entry.category %></p>
-											<h3 class="product-name"><a href="/product/<%=entry._id %>"><%= entry.name %></a></h3>
-											<h4 class="product-price"><%= priceConverter(entry.price) %> đ
-												<del class="product-old-price"><%= priceConverter(entry.old_price) %> đ</del>
-											</h4>
-										</div>
-									</div>
-								<% }) %>
+								<%- include ('../../partials/list-products.ejs') %>
 							</div>
 							<div id="slick-nav-2" class="products-slick-nav"></div>
 						</div>

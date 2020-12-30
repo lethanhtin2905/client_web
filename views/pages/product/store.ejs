@@ -34,42 +34,11 @@
                 <%- include ('../../partials/top-filter.ejs') %>
                 <!-- /store top filter -->
 
-                <!-- store products -->
-                <div class="row">
-                    <!-- Phần ô sản phẩm  -->
-                    <div class="product-show">
-                        <div class="row">
-                            <% products.forEach((entry) => { %>
-                            <div class="col-md-3 col-xs-6">
-                                <div class="product product_store">
-                                    <a href="/product/<%= entry._id %>">
-                                        <div class="product-img">
-                                            <img src="<%= entry.imgSrc %>" alt="">
-                                            <div class="product-label">
-                                                <!-- <span class="sale">-30%</span>
-                                            <span class="new">MỚI</span> -->
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <div class="product-body">
-                                        <p class="product-category"><%= entry.category %></p>
-                                        <h3 class="product-name"><a href="/product/<%= entry._id %>"><%= entry.name %></a></h3>
-                                        <h4 class="product-price"><%= priceConverter(entry.price) %> đ <del
-                                                class="product-old-price"><%= priceConverter(entry.old_price) %> đ</del>
-                                        </h4>
-                                    </div>
-                                    <!-- <div class="add-to-cart">
-                                        <button id="<%= entry._id %>_<%= entry.imgSrc %>_<%= entry.name %>_<%= entry.price %>" class="add-to-cart-btn" onclick="addToCart(this)">
-                                            <i class="fa fa-shopping-cart"></i><p style="font-size:12px;">Thêm vào giỏ</p>
-                                        </button>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <% }) %>
-                        </div>
-                    </div>
+               <!-- store products -->
+               <div class="row">
+                <%- include ('../../partials/grid-products.ejs') %>
                 </div>
-                <!-- /store products -->
+            <!-- /store products -->
 
                 <!-- store bottom filter -->
                 <%- include ('../../partials/bottom-filter.ejs') %>
