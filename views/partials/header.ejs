@@ -34,8 +34,13 @@
                     <li><a href="#"><i class="fa fa-map-marker"></i> 227 Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</a></li>
                 </ul>
                 <ul class="header-links pull-right">
+                    <% if (typeof user != 'undefined') { %>
+                    <li><a href="/users/profile">Xin chào <%= user.name %></a></li>
+                    <li><a href="/users/logout">Đăng xuất</a></li>
+                    <% } else { %>
                     <li><a href="/users/login">Đăng nhập</a></li>
                     <li><a href="/users/register">Đăng ký</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -95,9 +100,9 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Tài khoản của tôi<br></a>
-                                    <a class="dropdown-item" href="#">Đổi mật khẩu<br></a>
-                                    <a class="dropdown-item" href="#">Đơn hàng của tôi<br></a>
+                                    <a class="dropdown-item" href="/users/profile">Thông tin tài khoản<br></a>
+                                    <a class="dropdown-item" href="/users/change-password">Đổi mật khẩu<br></a>
+                                    <a class="dropdown-item" href="/users/order-management">Đơn hàng của tôi<br></a>
                                 </div>
                             </div>
                         </div>

@@ -22,10 +22,6 @@ var User = require('../models/user');
 exports.registerPage = (req, res) => {
     res.render('pages/account/register');
 }
-// Login Page
-exports.loginPage = (req, res) => {
-    res.render('pages/account/login');
-}
 
 // Activate Account Page
 exports.activatePage = (req, res) => {
@@ -37,6 +33,16 @@ exports.activatePage = (req, res) => {
             res.render('pages/account/activate');
         })
         .catch(err => console.log(err));
+}
+
+// Login Page
+exports.loginPage = (req, res) => {
+    res.render('pages/account/login');
+}
+
+// Profile Page
+exports.profile = (req, res) => {
+    res.render('pages/account/profile', { user: req.user });
 }
 
 // Register Handle
@@ -91,4 +97,41 @@ exports.registerHandle = (req, res) => {
                 }
             });
     }
+}
+
+// Login Handle
+exports.loginHandle = (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/users/profile',
+        failureRedirect: '/users/login',
+        failureFlash: true
+    })(req, res, next);
+}
+
+// Update Profile
+exports.updateProfile = (req, res) => {
+    let errors = [];
+    const newName = req.body.name;
+    const newPhone = req.body.phone;
+    const newAddress = req.body.address;
+
+    User.findOne({ _id: req.user._id }) // Find user by ID
+        .then(user => {
+            if (newName != '') {
+                user.name = newName;
+            }
+            if (newPhone != '') {
+                user.phone = newPhone;
+            }
+            if (newAddress != '') {
+                user.address = newAddress;
+            }
+            user.save()
+                .then(user => {
+                    req.flash('success_msg', 'Bạn đã cập nhật thành công');
+                    res.redirect('/users/profile');
+                })
+                .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
 }
