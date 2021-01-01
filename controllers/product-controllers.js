@@ -217,3 +217,8 @@ exports.comment = (req, res) => {
 			throw err;
 		});
 }
+
+// Cart
+exports.cart = (req, res) => {
+	res.render('pages/order/cart', { user: req.user });
+}

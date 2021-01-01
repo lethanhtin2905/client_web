@@ -25,4 +25,7 @@ router.post('/store', productControllers.filter);
 // Post comment
 router.post('/product/comment/:id', productControllers.comment);
 
+// Cart
+router.get('/cart', productControllers.cart);
+
 module.exports = router;
