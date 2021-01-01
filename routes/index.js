@@ -22,4 +22,7 @@ router.post('/search', productControllers.searchHandle);
 // Advance Filter
 router.post('/store', productControllers.filter);
 
+// Post comment
+router.post('/product/comment/:id', productControllers.comment);
+
 module.exports = router;

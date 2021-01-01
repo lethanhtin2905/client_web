@@ -201,3 +201,19 @@ exports.searchHandle = (req, res) => {
 
 	res.redirect('/search?' + queryStr);
 }
+
+// Product comment
+exports.comment = (req, res) => {
+	const productID = req.params.id;
+	const username = req.body.name;
+	const content = req.body.content;
+	const newComment = new Comment({ productID, username, content });
+	newComment.save()
+		.then(comment => {
+			res.redirect('/product/' + req.params.id);
+		})
+		.catch(err => {
+			console.log('Error: ', err);
+			throw err;
+		});
+}
