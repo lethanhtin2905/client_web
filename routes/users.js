@@ -28,4 +28,10 @@ router.post('/update-profile', accountControllers.updateProfile);
 // Order Management
 router.get('/order-management', ensureAuthenticated, orderControllers.orderManagement);
 
+// Checkout Page
+router.get('/checkout', ensureAuthenticated, orderControllers.checkoutPage);
+
+// Checkout Handle
+router.post('/checkout', orderControllers.checkoutHandle);
+
 module.exports = router;
