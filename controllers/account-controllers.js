@@ -135,3 +135,8 @@ exports.updateProfile = (req, res) => {
         })
         .catch(err => console.log(err));
 }
+
+// Checkout Page
+exports.checkoutPage = (req, res) => {
+    res.render('pages/order/checkout', { user: req.user });
+}

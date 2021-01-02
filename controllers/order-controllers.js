@@ -15,11 +15,6 @@ exports.orderManagement = (req, res) => {
         .catch(err => console.log(err));
 }
 
-// Checkout Page
-exports.checkoutPage = (req, res) => {
-    res.render('pages/order/checkout', { user: req.user });
-}
-
 // Checkout Handle
 exports.checkoutHandle = (req, res) => {
     var tokens = req.body.items.split('//');

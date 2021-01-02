@@ -29,7 +29,7 @@ router.post('/update-profile', accountControllers.updateProfile);
 router.get('/order-management', ensureAuthenticated, orderControllers.orderManagement);
 
 // Checkout Page
-router.get('/checkout', ensureAuthenticated, orderControllers.checkoutPage);
+router.get('/checkout', ensureAuthenticated, accountControllers.checkoutPage);
 
 // Checkout Handle
 router.post('/checkout', orderControllers.checkoutHandle);
