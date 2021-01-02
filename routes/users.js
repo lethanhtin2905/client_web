@@ -34,4 +34,7 @@ router.get('/checkout', ensureAuthenticated, accountControllers.checkoutPage);
 // Checkout Handle
 router.post('/checkout', orderControllers.checkoutHandle);
 
+// Track Order
+router.get('/track-order/:id', ensureAuthenticated, orderControllers.trackOrder);
+
 module.exports = router;
