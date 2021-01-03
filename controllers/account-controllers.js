@@ -140,3 +140,10 @@ exports.updateProfile = (req, res) => {
 exports.checkoutPage = (req, res) => {
     res.render('pages/order/checkout', { user: req.user });
 }
+
+// Logout Handle
+exports.logoutHandle = (req, res) => {
+    req.logout();
+    req.flash('success_msg', 'Bạn đã đăng xuất');
+    res.redirect('/users/login');
+}
