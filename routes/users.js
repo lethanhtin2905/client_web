@@ -25,6 +25,9 @@ router.post('/login', accountControllers.loginHandle);
 // Update Profile
 router.post('/update-profile', accountControllers.updateProfile);
 
+// Logout Handle
+router.get('/logout', accountControllers.logoutHandle);
+
 // Order Management
 router.get('/order-management', ensureAuthenticated, orderControllers.orderManagement);
 
@@ -36,5 +39,11 @@ router.post('/checkout', orderControllers.checkoutHandle);
 
 // Track Order
 router.get('/track-order/:id', ensureAuthenticated, orderControllers.trackOrder);
+
+// Change Password Page
+router.get('/change-password', ensureAuthenticated, accountControllers.changePasswordPage);
+
+// Change Password Handle
+router.post('/change-password', accountControllers.changePasswordHandle);
 
 module.exports = router;
