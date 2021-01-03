@@ -46,4 +46,10 @@ router.get('/change-password', ensureAuthenticated, accountControllers.changePas
 // Change Password Handle
 router.post('/change-password', accountControllers.changePasswordHandle);
 
+// Forget Password Page
+router.get('/forget-password', accountControllers.forgetPasswordPage);
+
+// Forget Password Handle
+router.post('/forget-password', accountControllers.forgetPasswordHandle);
+
 module.exports = router;
