@@ -52,4 +52,10 @@ router.get('/forget-password', accountControllers.forgetPasswordPage);
 // Forget Password Handle
 router.post('/forget-password', accountControllers.forgetPasswordHandle);
 
+// Reset Password Page
+router.get('/reset-password', accountControllers.resetPasswordPage);
+
+// Reset Password Handle
+router.post('/reset-password', accountControllers.resetPasswordHandle);
+
 module.exports = router;

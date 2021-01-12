@@ -224,3 +224,38 @@ exports.forgetPasswordHandle = (req, res) => {
         })
         .catch(err => console.log(err));
 }
+
+// Reset Password Page
+exports.resetPasswordPage = (req, res) => {
+    res.render('pages/account/reset-password', { email: req.query.email });
+}
+
+// Reset Password Handle
+exports.resetPasswordHandle = (req, res) => {
+    const email = req.query.email;
+    const verifyCode = req.body.verifyCode;
+    const newPassword = req.body.newPassword;
+
+    // Find user by email
+    User.findOne({ email: email })
+        .then(user => {
+            if (user._id != verifyCode) {
+                req.flash('error_msg', 'Mã xác nhận không đúng');
+                res.redirect('/users/reset-password?email=' + email);
+            } else {
+                // Hash new password
+                bcrypt.genSalt(10, (err, salt) =>
+                    bcrypt.hash(newPassword, salt, (err, hash) => {
+                        user.password = hash;
+                        // Save new password
+                        user.save()
+                            .then(user => {
+                                req.flash('success_msg', 'Bạn đã đặt lại mật khẩu thành công');
+                                res.redirect('/users/login');
+                            })
+                            .catch(err => console.log(err));
+                    }));
+            }
+        })
+        .catch(err => console.log(err));
+}
